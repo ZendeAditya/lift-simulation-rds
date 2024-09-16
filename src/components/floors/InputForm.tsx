@@ -13,11 +13,11 @@ const InputForm = (props: Props) => {
   if (!context) {
     throw new Error("InputForm must be used within an InputProvider");
   }
-  const { Lifts, setLifts, Floors, setFloors } = context;
+  const { LiftNumber, setLiftNumber, Floors, setFloors } = context;
 
   const handleLiftsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setLifts(e.target.value);
+    setLiftNumber(e.target.value);
   };
 
   const handleFloorsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +51,7 @@ const InputForm = (props: Props) => {
               className="w-80"
               type="number"
               placeholder="Enter the No. of Lifts?"
-              value={Lifts}
+              value={LiftNumber}
               onChange={handleLiftsChange}
             />
           </div>

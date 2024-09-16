@@ -6,6 +6,8 @@ import ThemeContext from "./context/ThemeContext";
 import { ThemeValue } from "./context/ThemeContext";
 import { useContext } from "react";
 import Theme from "@/components/Theme";
+import FloorContext from "./context/FloorContext";
+import LiftProviders from "@/components/lifts/LiftProviders";
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 export const metadata: Metadata = {
   title: "Lift Simulation RDS",
@@ -20,12 +22,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} relative`}>
-        <ThemeContext>
-          <div className="absolute right-0  z-10">
-            <Theme />
-          </div>
-          <InputContext>{children}</InputContext>
-        </ThemeContext>
+        <LiftProviders>
+          <ThemeContext>
+            <FloorContext>
+              <div className="absolute right-0  z-10">
+                <Theme />
+              </div>
+              <InputContext>{children}</InputContext>
+            </FloorContext>
+          </ThemeContext>
+        </LiftProviders>
       </body>
     </html>
   );

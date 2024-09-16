@@ -6,7 +6,7 @@ import Floor from "./Floor";
 type Props = {};
 
 const FloorDisplay = (props: Props) => {
-  const { Lifts, Floors } = useContext(InputContexts) || {};
+  const { LiftNumber, Floors } = useContext(InputContexts) || {};
 
   const numberArray: number[] = Array.from(
     { length: Number(Floors) },
@@ -14,11 +14,11 @@ const FloorDisplay = (props: Props) => {
   );
 
   return (
-    <div className="relative">
+    <div className="relative pt-10">
       {numberArray.map((num: number) => (
         <div key={num} className="my-2">
           <p className="text-2xl absolute py-[4rem] px-2">{num}</p>
-          <Floor floorId={num}/>
+          <Floor floorId={num} />
         </div>
       ))}
     </div>

@@ -6,7 +6,7 @@ type Props = {};
 
 const SimulationPage = (props: Props) => {
   return (
-    <div>
+    <div className="relative h-screen">
       <FloorDisplay />
       <LiftDisplay />
     </div>

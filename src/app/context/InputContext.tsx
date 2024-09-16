@@ -7,8 +7,8 @@ type Props = {
 };
 
 interface InputContextType {
-  Lifts: string;
-  setLifts: (value: string) => void;
+  LiftNumber: string;
+  setLiftNumber: (value: string) => void;
   Floors: string;
   setFloors: (value: string) => void;
 }
@@ -18,16 +18,21 @@ export const InputContexts = createContext<InputContextType | undefined>(
 );
 
 const InputContext = ({ children }: Props) => {
-  const [Lifts, setLifts] = useState<string>();
+  const [LiftNumber, setLiftNumber] = useState<string>();
   const [Floors, setFloors] = useState<string>();
 
-  if (Lifts == "0" || Floors == "0") {
+  if (LiftNumber == "0" || Floors == "0") {
     alert("Input should not be zero!");
   }
 
   return (
     <InputContexts.Provider
-      value={{ Lifts: Lifts || "", setLifts, Floors: Floors || "", setFloors }}
+      value={{
+        LiftNumber: LiftNumber || "",
+        setLiftNumber,
+        Floors: Floors || "",
+        setFloors,
+      }}
     >
       {children}
     </InputContexts.Provider>

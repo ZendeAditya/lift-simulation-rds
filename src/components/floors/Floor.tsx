@@ -1,20 +1,27 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import { Button } from "../ui/button";
+import { FloorNumberContext } from "@/app/context/FloorContext";
+import { LiftContext, LiftContextProps } from "@/app/context/LiftContext";
 
 type Props = {
   floorId: number;
 };
 
 const Floor = (props: Props) => {
+  const { setFloorNum } = useContext(FloorNumberContext);
+  const { requestLift } = useContext(LiftContext) as LiftContextProps;
   const handleUpButton = () => {
-    console.log("Up button on : ", props.floorId);
+    setFloorNum(props.floorId);
+    requestLift(props.floorId);
   };
   const handleDownButton = () => {
-    console.log("Down button on : ", props.floorId);
+    setFloorNum(props.floorId);
+    requestLift(props.floorId);
   };
   return (
-    <div className="p-2">
-      <div className="w-auto h-40 mx-4 border-2 border-gray-700 shadow-lg rounded-md p-3">
+    <div className="p-2 pt">
+      <div className="w-auto h-44 mx-4 border-2 border-gray-700 shadow-lg rounded-md p-3">
         <div className=" flex flex-col py-7 gap-3">
           <Button
             onClick={handleUpButton}
