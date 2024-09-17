@@ -22,16 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} relative`}>
-        <LiftProviders>
-          <ThemeContext>
-            <FloorContext>
-              <div className="absolute right-0  z-10">
-                <Theme />
-              </div>
-              <InputContext>{children}</InputContext>
-            </FloorContext>
-          </ThemeContext>
-        </LiftProviders>
+        <ThemeContext>
+          <FloorContext>
+            <div className="absolute right-0  z-10">
+              <Theme />
+            </div>
+            <InputContext>{children}</InputContext>
+          </FloorContext>
+        </ThemeContext>
       </body>
     </html>
   );

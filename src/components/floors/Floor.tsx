@@ -2,22 +2,19 @@
 import React, { useContext } from "react";
 import { Button } from "../ui/button";
 import { FloorNumberContext } from "@/app/context/FloorContext";
-import { LiftContext, LiftContextProps } from "@/app/context/LiftContext";
 
 type Props = {
   floorId: number;
+  isShowButton: Boolean;
 };
 
 const Floor = (props: Props) => {
   const { setFloorNum } = useContext(FloorNumberContext);
-  const { requestLift } = useContext(LiftContext) as LiftContextProps;
   const handleUpButton = () => {
     setFloorNum(props.floorId);
-    requestLift(props.floorId);
   };
   const handleDownButton = () => {
     setFloorNum(props.floorId);
-    requestLift(props.floorId);
   };
   return (
     <div className="p-2 pt">

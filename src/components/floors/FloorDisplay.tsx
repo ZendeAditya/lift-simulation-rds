@@ -18,7 +18,7 @@ const FloorDisplay = (props: Props) => {
       {numberArray.map((num: number) => (
         <div key={num} className="my-2">
           <p className="text-2xl absolute py-[4rem] px-2">{num}</p>
-          <Floor floorId={num} />
+          <Floor floorId={num} isShowButton={false} />
         </div>
       ))}
     </div>
